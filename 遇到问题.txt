@@ -1,0 +1,185 @@
+
+如果终端输入npm run dev后出现这个错误：
+listen EADDRINUSE 127.0.0.1:3000表示3000这个端口号被占用，要么将package.json里面的3000改掉
+要么右击打开任务管理器，把关于node.js的结束任务
+
+
+
+对于都需要用到轮播图的地方，先建立一个轮播图组件swiper.vue，里面是轮播图区域内容和样式
+然后在需要引入swiper.vue的组件里面引入swiper.vue
+<script> 
+import swiper from "../subcomponents/swiper.vue";
+export default {
+return {
+      lunbotuList: [] // 保存轮播图的数组
+    };
+     components: {
+    swiper   
+  } 
+}
+</script>
+最后再在<template>区域添加一个<swiper>标签
+
+
+
+
+
+你的json格式是这样的，then里面封装的就是有个接口返回的结果 res，res.body是你json里面的数据。然后再往下一级，res.body.message就是你的新闻列表数据了。这里的this.newlist数组指定了数据就是res.body.message
+
+
+
+res.body.message
+
+json里面含有html标签怎么解析？双引号转义   好像不是双引号问题
+get（）里面api,直接json,加了static文件夹
+
+
+
+
+tabbar切换动画
+格式化时间---过滤器
+东西多了右侧滑动栏-----padding-top  padding-bottom
+
+
+{{item.time | dataFormat('YYY-MM-D')}}
+
+ 当json里面message数组就一个时候，访问时候message[0]
+{path: '/home/newsinfo/:id', component: NewsInfo},少了/就错了
+
+
+
+<div class="cmt-body" v-html="item.content">
+          <!-- 哈哈哈哈哈哈哈哈 -->
+          <!-- {{item.content}}   用v-html解析html标签 -->
+          <!-- {{ item.content === 'undefined' ? '此用户很懒，嘛都没说': item.content }}  -->
+        </div>
+
+
+
+
+comment.vue里面Date.now()显示当前时间，要格式化
+
+
+cnpm i vue-preview -S
+mian.js入口中引入
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+组件中引入
+<div class="thumbs">
+  
+<img class="preview-img" v-for="item in list" :src="item.src" height="100" @click="$preview.open(index, list)" :key="item.src" />
+</div>
+
+发现报错：
+
+vue.js使用vue-preview做移动端缩略图时报错Property or method "$preview" is not defined
+在全局已经引入和安装该插件的前提下，查看github中该插件得知（地址：https://github.com/LS1231/vue-preview），该插件已经更新，使用方法已经发生转变，所以要按照 该插件更新的使用方法来进行修改。
+
+
+首先先安装插件
+
+cnpm i vue-preview 
+1
+在vue全局，也就是main.js声明插件
+
+import VuePreview from 'vue-preview'
+
+Vue.use(VuePreview)
+1
+2
+3
+在组件里插入
+
+ <div class="thumbs">
+        <vue-preview :slides="list" @close="handleClose"></vue-preview>    
+        //list为你数据储存的地方，handleClose在下面组件方法里面设置
+        </div>
+1
+2
+3
+4
+获取数据，与以前方法唯一不同就是出现了个msrc，只要把src值赋给它就好
+
+ getThumbs(){
+                    this.$http.get('http://www.liulongbin.top:3005/api/getthumimages/'+this.id).then(result=>{
+                        if (result.body.status===0){
+                            result.body.message.forEach(item=>{
+                                item.w=600;
+                                item.h=400;
+                                item.msrc=item.src;  //关键点，赋值给它
+                            })
+                            this.list=result.body.message
+                        }else {
+                            alert("上传失败")
+                        }
+                    })
+handleClose () {  //加上这个方法
+                console.log('close event')
+            }
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+同时你需要对图片列表的样式进行修改，这需要用到深层作用选择器
+下面是我的样式表
+
+ .thumbs{
+         /deep/ .my-gallery{   //deep深层作用选择器
+              display: flex;
+              flex-wrap:wrap;//默认换行
+              figure{
+                  width: 30%;  
+                  margin: 5px; 
+                  img{
+                      width: 100%;
+                      box-shadow: 0 0 8px #999;  
+                      border-radius: 5px;
+                  }
+              }
+          }
+        }
+
+
+
+
+
+
+
+[Vue warn]: Duplicate keys detected: '1'. This may cause an update error.
+关键值key重复
+:key="item.id"把json里面key改掉
+
+这是因为v-for循环时某些项的key值重复了。key属性是 Vue 识别节点的一个通用机制，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，因此循环的每一项中key 值应该是唯一的。
+
+
+改json文件夹里面id，发现不可以，改json里面全部参数不一样，报错，：key（index）对的
+
+因为加载更多后，出现新的1234.然后和之前那个重复
+
+
+
+// 3. 传递命名的路由      
+     this.$router.push({ name: "goodsinfo", params: { id } });
+我以为name里面是，路由名称，就是组件.vue前面的英文单词
+
+正解： router.js里面routes路由规则里面{path: '/home/goodsinfo/:id', component: GoodsInfo, name: "goodsinfo"}
+
+
+
+，
+手机电脑同一个网下，可以访问同一个页面
+电脑ipconfig找到ip地址，然后在package.json里面的“dev”参数里面加个--host 刚才的ip地址
+然后npm run dev
+再在手机里面输入网页里面网址即可

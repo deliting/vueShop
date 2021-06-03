@@ -1,0 +1,37 @@
+主页：/ 
+    分类列表：/newslist 携带查询页数      返回值：result_code    
+    加载图标接口：/favicon.ico
+登陆菜单：
+    登陆：/password/login             返回值：result_code 
+    注册：/password/register          返回值：result_code 
+    图形验证码：password/image_code   返回值：result_code 
+    短信验证码：password/smscode      返回值：result_code 
+
+    退出:/password/logout            返回值：result_code 
+    忘记密码：（缺少）
+新闻单页：/news/id
+     收藏：/new/newscollect          返回值：result_code 
+     关注：/news/followed_user       返回值：result_code 
+     评论：/news/news_comment        返回值：result_code 
+     评论点赞：/news/comment_like    返回值：result_code 
+
+用户信息详情页：/user/info
+   修改个性签名信息： /user/base_info   返回值：result_code 
+   头像设置：user/pic_info              返回值：result_code 
+   我的关注：user/user_follow           
+   密码修改：user/pass_info            返回值：result_code 
+   我的收藏新闻：user/collection       
+   新闻发布：user/news_release         返回值：result_code 
+   新闻列表：user/news_list 
+   关注作者的详情信息：/user/other_user  返回值：result_code 或渲染页面
+   关注作者的新闻列表：/user/other_news_list   
+
+管理员界面：admin/index  
+    登陆界面：admin/login          返回值：result_code 或渲染页面
+      退出界面：admin/logout            返回值：result_code 或渲染页面
+    用户统计：admin/user_count      
+    用户列表：admin/user_list        
+        用户删除：（缺少）
+    新闻审核加载：admin/news_review         
+        新闻详情审核：admin/news_review_detail    返回值：result_code 
+    新闻分类管理：admin/news_category        返回值：result_code 

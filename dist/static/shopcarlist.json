@@ -1,0 +1,33 @@
+{
+    "status": 0,
+    "message": [
+        {
+            "id": 1,
+            "img_url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1550572195.46364290.jpg",
+            "title": "小米（Mi）小米Note 16G双网通版",
+            "sell_price": 949
+            
+        },
+        {
+            "id": 2,
+            "img_url": "//gw.alicdn.com/bao/upload/TB1g4C1pYj1gK0jSZFuXXcrHpXa.jpg_Q75.jpg",
+            "title": "双面呢大衣做最美的穿搭",
+            "sell_price": 599
+            
+        },
+        {
+            "id": 3,
+            "img_url": "//gw.alicdn.com/bao/upload/TB1i51npxz1gK0jSZSgXXavwpXa.jpg_Q75.jpg",
+            "title": "正宗浙江海宁皮草",
+            "sell_price": 1599
+            
+        },
+        {
+            "id": 4,
+            "img_url": "https:////img11.360buyimg.com/n1/s450x450_jfs/t1/17323/33/9532/136240/5c80b727E9a4ba648/c1ab7fa3596c11a9.jpg",
+            "title": "富士D3300套机（18-55mm f/3.5-5.6G VRII）（黑色）",
+            "sell_price": 2899
+            
+        }
+    ]
+}
